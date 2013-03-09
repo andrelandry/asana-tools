@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  asana_id: 1
+  due_on: 2013-03-09
+
+two:
+  name: MyString
+  asana_id: 1
+  due_on: 2013-03-09
