@@ -1,7 +1,5 @@
 class Project < ActiveRecord::Base
   
-  
-  
   has_many :tasks
   
   def fetch_tasks
@@ -12,7 +10,7 @@ class Project < ActiveRecord::Base
     response = JSON.parse(response)
     
     response['data'].each do |task|
-      self.tasks.new(name: task['name'], asana_id: task['id'])
+      self.tasks.create(name: task['name'], asana_id: task['id'], due_on: task['due_on'])
     end
   end
 end
