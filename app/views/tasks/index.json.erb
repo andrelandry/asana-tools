@@ -1,0 +1,12 @@
+[
+<% @tasks.each do |task|
+
+#doesn't generate timeline if no due date.
+next if task.due_on.nil?
+%>
+{dates: [new Date(<%= task.due_on.year%>, <%= task.due_on.month - 1%>, <%= task.due_on.day%>)],
+ title: "<%= task.name %>",
+ attrs: {} // optional
+},
+<%end%>
+];
