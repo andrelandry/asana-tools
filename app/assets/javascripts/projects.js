@@ -3,16 +3,21 @@
 
 $(document).ready(function(){
 	
-	var events = [
-		{dates: [new Date(2013, 0, 19)],
-		 title: "2011 Season Opener",
-		 attrs: {} // optional
-		},
-		{dates: [new Date(2013, 0, 13)], title: "Spring Training Begins"},
-		{dates: [new Date(2013, 3, 9), new Date(2013, 3, 11)], title: "Atlanta Braves @ Houston Astros"}
-		];
+	get_tasks = $.ajax({
+		url: '/projects/2/tasks',
+		converters: {"text json": true},
+		success: init_timline,
+		error: function(jqXHR,textStatus,errorThrown){
+			console.log(jqXHR);
+		}
+	});
+	
+	function init_timline(data){
+		data = eval(data);
 		
-	var timeline = new Chronoline(document.getElementById('timeline'), events,
-	    {animated: true});
+		console.log(data);		
+		var timeline = new Chronoline(document.getElementById('timeline'), data,
+	    		{animated: true});
+	}
 		    
 });
