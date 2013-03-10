@@ -3,8 +3,11 @@
 
 $(document).ready(function(){
 	
-	get_tasks = $.ajax({
-		url: '/projects/2/tasks',
+	var project_id = $('#timeline').data('project');
+	var task_url = "/projects/"+ project_id + "/tasks";
+	
+	$.ajax({
+		url: task_url,
 		converters: {"text json": true},
 		success: init_timline,
 		error: function(jqXHR,textStatus,errorThrown){
