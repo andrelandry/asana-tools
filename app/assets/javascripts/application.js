@@ -14,3 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery.qtip.min
+//= require raphael-min
+//= require chronoline
