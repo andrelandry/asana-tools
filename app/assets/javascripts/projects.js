@@ -14,8 +14,7 @@ $(document).ready(function(){
 	
 	function init_timline(data){
 		data = eval(data);
-		
-		console.log(data);		
+			
 		var timeline = new Chronoline(document.getElementById('timeline'), data,
 	    		{animated: true});
 	}
