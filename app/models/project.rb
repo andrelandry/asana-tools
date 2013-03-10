@@ -9,8 +9,12 @@ class Project < ActiveRecord::Base
     
     response = JSON.parse(response)
     
+    #resets tasks
+    self.tasks.delete_all
+    
     response['data'].each do |task|
       self.tasks.create(name: task['name'], asana_id: task['id'], due_on: task['due_on'])
     end
   end
+  
 end
